@@ -555,3 +555,53 @@ try{const d=await call("bulk_scores",{records});const list=[...problems,...(d.er
 /* 업로드 완료 안내: 잠시 후 부드럽게 사라짐 */
 #fileProgress{transition:opacity .35s ease}#fileProgress.fading{opacity:0}
 </style>
+
+<style>
+/* ===== 휴대폰·태블릿 화면 이탈 방지 ===== */
+/* 날짜 입력칸: iOS Safari에서 고유 너비 때문에 다른 입력칸보다 넓어지는 현상 방지 */
+.admin input[type="date"],.admin input[type="number"],.admin select{display:block;width:100%;min-width:0;max-width:100%;box-sizing:border-box}
+.admin input[type="date"]{-webkit-appearance:none;appearance:none;overflow:hidden;min-height:45px;line-height:normal;text-align:left;background-color:#fff}
+.admin input[type="date"]::-webkit-date-and-time-value{text-align:left;min-width:0;margin:0}
+.admin input[type="date"]::-webkit-datetime-edit{padding:0;min-width:0}
+.admin input[type="date"]::-webkit-calendar-picker-indicator{margin-left:auto}
+.admin .grid2>*,.admin .field,.admin .formbox,.admin .file-edit-dialog,.admin .file-edit-dialog form,.admin-main,#adminContent{min-width:0;max-width:100%}
+.admin .grid2{grid-template-columns:repeat(auto-fit,minmax(0,1fr))}
+.admin .score-student-groups,.admin .file-category-list,.admin .file-area-groups,.admin .cutoff-groups{grid-template-columns:minmax(0,1fr)}
+.admin .score-student-group,.admin .file-category,.admin .tablewrap{min-width:0;max-width:100%}
+.admin .tablewrap{-webkit-overflow-scrolling:touch}
+@media(max-width:720px){.admin .grid2{grid-template-columns:minmax(0,1fr)!important}}
+@media(max-width:1100px){
+  /* 목록 표를 카드형으로: 가로 스크롤 없이 모든 항목과 관리 버튼이 보이도록 */
+  .admin #st .tablewrap,.admin .score-student-group .tablewrap,.admin .file-area .tablewrap,.admin .tablewrap:has(.audit-table){overflow-x:visible}
+  .admin #st table.table,.admin .score-student-group table.table,.admin .file-area table.table,.admin table.audit-table{display:block;width:100%;min-width:0!important}
+  .admin #st table.table thead,.admin .score-student-group table.table thead,.admin .file-area table.table thead,.admin table.audit-table thead{display:none}
+  .admin #st table.table tbody,.admin .score-student-group table.table tbody,.admin .file-area table.table tbody,.admin table.audit-table tbody{display:block}
+  .admin #st table.table tr,.admin .score-student-group table.table tr,.admin .file-area table.table tr,.admin table.audit-table tr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px 12px;padding:12px 14px;border-top:1px solid #ecebe6}
+  .admin #st table.table tr:first-child,.admin .score-student-group table.table tr:first-child,.admin .file-area table.table tr:first-child,.admin table.audit-table tr:first-child{border-top:0}
+  .admin #st table.table td,.admin .score-student-group table.table td,.admin .file-area table.table td,.admin table.audit-table td{display:block;padding:0!important;border:0!important;min-width:0;white-space:normal!important;overflow-wrap:anywhere;word-break:keep-all;font-size:12.5px;line-height:1.5}
+  .admin .score-student-group table.table td::before,.admin .file-area table.table td::before{color:#777;font-size:11px;margin-right:6px}
+  .admin .score-student-group table.table td:nth-child(1){grid-column:1/-1;font-size:13px}
+  .admin .score-student-group table.table td:nth-child(2)::before{content:"원점수"}
+  .admin .score-student-group table.table td:nth-child(3)::before{content:"예상 등급"}
+  .admin .score-student-group table.table td:nth-child(4){grid-column:1/-1}
+  .admin .file-area table.table td:nth-child(1){grid-column:1/-1;font-size:13px;font-weight:600}
+  .admin .file-area table.table td:nth-child(3)::before{content:"응시일"}
+  .admin .file-area table.table td:nth-child(4){grid-column:1/-1}
+  .admin .score-student-group .row-actions,.admin .file-area .row-actions{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-start}
+  .admin #st table.table td:nth-child(3){grid-column:1/-1}
+  .admin #st .row-actions{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-start}
+  .admin #st table.table td,.admin .score-student-group table.table td,.admin .file-area table.table td,.admin table.audit-table td{width:auto!important;max-width:none!important}
+  .admin .row-actions{flex-direction:row!important;flex-wrap:wrap}
+  .admin .row-actions .btn{width:auto!important;flex:0 0 auto}
+  .admin table.audit-table td:nth-child(2){text-align:right}
+  .admin table.audit-table td:nth-child(3){grid-column:1/-1;font-weight:650}
+  .admin table.audit-table td:nth-child(4){grid-column:1/-1;min-width:0}
+  .admin table.audit-table{min-width:0}
+}
+/* 학생 성적표(학생 화면·미리보기): 좁은 화면에서도 표가 한 화면에 들어오도록 */
+@media(max-width:560px){
+  .report-score-table th,.report-score-table td{padding:10px 4px;font-size:12px;white-space:normal;word-break:keep-all;line-height:1.35}
+  .report-score-table th{font-size:10.5px}
+  .report-score-wrap{overflow-x:visible}
+}
+</style>
