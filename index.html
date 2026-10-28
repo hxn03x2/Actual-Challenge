@@ -777,8 +777,11 @@ $("bkList").onclick=async e=>{const b=e.target.closest("[data-bk]");if(!b)return
 </style>
 <style>
 /* 관리자 메뉴: 기능별 구분 제목 (휴대폰 폭에서는 가로 목록을 유지하기 위해 제목을 숨긴다) */
-.admin .nav .nav-group{display:block;padding:16px 12px 6px;font-size:11px;font-weight:650;letter-spacing:.06em;color:#8a8982;border-bottom:1px solid #deded9}
-.admin .nav .nav-group:first-child{padding-top:4px}
+.admin .nav .nav-group{display:block;margin-top:14px;padding:9px 12px;font-size:12px;font-weight:700;letter-spacing:.02em;color:#fff;background:#242422;border-bottom:0}
+.admin .nav .nav-group:first-child{margin-top:0}
+.admin .nav .nav-group+button{border-top:0}
+.admin .nav button[data-view]{padding-left:22px}
+.admin .nav button.active{padding-left:20px}
 @media(max-width:720px){.admin .nav .nav-group{display:none}}
 </style>
 
