@@ -303,7 +303,7 @@ body{letter-spacing:-.025em;line-height:1.42;background:#f4f4f2}
     <section class="result-section"><div class="section-head"><h2>시험 자료</h2></div><div id="resultFiles"></div></section>
   </main>
 </div>
-<div id="adminApp" class="admin hidden"><div class="admin-wrap"><header class="admin-head"><div><div class="eyebrow">CHEONGUN HAKSA / ADMIN</div><h1>모의고사 성적 관리</h1></div></header><div class="admin-grid"><nav class="card nav"><span class="nav-group">학생</span><button data-view="students">학생 관리</button><button data-view="preview">학생 성적 조회</button><span class="nav-group">성적</span><button data-view="publish">공개 관리</button><button data-view="scores">성적 관리</button><button data-view="bulk">일괄 입력</button><button data-view="stats">통계</button><span class="nav-group">시험 자료</span><button data-view="cutoffs">등급 기준 관리</button><button data-view="answers">정답 관리</button><button data-view="files">파일 관리</button><span class="nav-group">시스템</span><button data-view="backup">백업</button><button data-view="audit">작업 기록</button><button id="adminLogout" class="nav-logout">로그아웃</button></nav><main class="card admin-main"><div id="adminContent"></div><p id="adminMessage" class="admin-msg toast" role="status" aria-live="polite"></p></main></div></div></div>
+<div id="adminApp" class="admin hidden"><div class="admin-wrap"><header class="admin-head"><div><div class="eyebrow">CHEONGUN HAKSA / ADMIN</div><h1>모의고사 성적 관리</h1></div></header><div class="admin-grid"><nav class="card nav"><div class="nav-section"><span class="nav-group">학생</span><button data-view="students">학생 관리</button><button data-view="preview">학생 성적 조회</button></div><div class="nav-section"><span class="nav-group">성적</span><button data-view="publish">공개 관리</button><button data-view="scores">성적 관리</button><button data-view="bulk">일괄 입력</button><button data-view="stats">통계</button></div><div class="nav-section"><span class="nav-group">시험 자료</span><button data-view="cutoffs">등급 기준 관리</button><button data-view="answers">정답 관리</button><button data-view="files">파일 관리</button></div><div class="nav-section"><span class="nav-group">시스템</span><button data-view="backup">백업</button><button data-view="audit">작업 기록</button></div><button id="adminLogout" class="nav-logout">로그아웃</button></nav><main class="card admin-main"><div id="adminContent"></div><p id="adminMessage" class="admin-msg toast" role="status" aria-live="polite"></p></main></div></div></div>
 <script>
 const SUPABASE_URL="https://gcajxrcyitsslwulyvjr.supabase.co";
 // Supabase Dashboard > Project Settings > API Keys에서 Publishable key를 입력하십시오.
@@ -776,15 +776,16 @@ $("bkList").onclick=async e=>{const b=e.target.closest("[data-bk]");if(!b)return
 @media(max-width:720px){.admin .search{flex-wrap:wrap}.admin .search>input{flex:1 1 100%;min-width:0}.admin .search>select,.admin .search>button{flex:1 1 100%;max-width:none!important;min-width:0}}
 </style>
 <style>
-/* 관리자 메뉴: 기능별 구분 제목과 항목 (휴대폰 폭에서는 가로 목록을 유지하기 위해 제목을 숨긴다) */
-.admin .nav{gap:0;padding:6px 0}
-.admin .nav .nav-group{display:block;margin:14px 0 6px;padding:16px 14px 0;font-size:11px;font-weight:650;letter-spacing:.09em;color:#8a8679;background:transparent;border:0;border-top:1px solid #e4e2db}
-.admin .nav .nav-group:first-child{margin-top:4px;padding-top:0;border-top:0}
-.admin .nav button[data-view]{display:block;width:100%;text-align:left;margin:1px 0;padding:9px 14px 9px 16px!important;border:0!important;border-left:2px solid transparent!important;background:transparent;color:#5d5b54;font-size:13.5px;font-weight:450;letter-spacing:-.01em;transition:background .15s,color .15s,border-color .15s}
-.admin .nav button[data-view]:hover{background:#efeee9!important;color:#2a2926!important}
-.admin .nav button[data-view].active{background:#fff!important;color:#1f1e1c!important;font-weight:600;border-left:2px solid #8a8472!important;box-shadow:0 1px 2px rgba(60,55,40,.06)}
-.admin .nav .nav-logout{margin-top:22px;padding:9px 16px;border:0;border-top:1px solid #e4e2db;color:#8d8a80;background:transparent;text-align:left;font-size:13px}
-.admin .nav .nav-logout:hover{color:#2a2926}
-@media(max-width:720px){.admin .nav .nav-group{display:none}.admin .nav button[data-view]{width:auto;border-left:0!important;border-bottom:2px solid transparent!important}.admin .nav button[data-view].active{border-left:0!important;border-bottom:2px solid #8a8472!important;box-shadow:none}}
+/* 관리자 메뉴: 분류별 칸 구분 (휴대폰 폭에서는 가로 목록을 유지하기 위해 칸과 제목을 풀어 둔다) */
+.admin .nav{gap:0;padding:0}
+.admin .nav .nav-section{margin:0 0 10px;border:1px solid #d6d4cc;background:#fbfaf8}
+.admin .nav .nav-group{display:block;margin:0;padding:9px 14px;font-size:11px;font-weight:650;letter-spacing:.08em;color:#77746a;background:#efeee9;border:0;border-bottom:1px solid #d6d4cc}
+.admin .nav button[data-view]{display:block;width:100%;text-align:left;margin:0;padding:10px 14px 10px 16px!important;border:0!important;border-bottom:1px solid #eceae4!important;border-left:2px solid transparent!important;background:transparent;color:#5d5b54;font-size:13.5px;font-weight:450;letter-spacing:-.01em;transition:background .15s,color .15s,border-color .15s}
+.admin .nav .nav-section button[data-view]:last-child{border-bottom:0!important}
+.admin .nav button[data-view]:hover{background:#f3f2ee!important;color:#2a2926!important}
+.admin .nav button[data-view].active{background:#fff!important;color:#1f1e1c!important;font-weight:600;border-left:2px solid #8a8472!important;box-shadow:none}
+.admin .nav .nav-logout{margin-top:4px;padding:10px 16px;border:1px solid #d6d4cc;color:#8d8a80;background:#fbfaf8;text-align:left;font-size:13px}
+.admin .nav .nav-logout:hover{color:#2a2926;background:#f3f2ee}
+@media(max-width:720px){.admin .nav .nav-section{display:contents}.admin .nav .nav-group{display:none}.admin .nav button[data-view]{width:auto;border-left:0!important;border-bottom:2px solid transparent!important}.admin .nav .nav-section button[data-view]:last-child{border-bottom:2px solid transparent!important}.admin .nav button[data-view].active{border-left:0!important;border-bottom:2px solid #8a8472!important;box-shadow:none}.admin .nav .nav-logout{margin-top:0;border:0}}
 </style>
 
