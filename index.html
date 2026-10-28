@@ -303,7 +303,7 @@ body{letter-spacing:-.025em;line-height:1.42;background:#f4f4f2}
     <section class="result-section"><div class="section-head"><h2>시험 자료</h2></div><div id="resultFiles"></div></section>
   </main>
 </div>
-<div id="adminApp" class="admin hidden"><div class="admin-wrap"><header class="admin-head"><div><div class="eyebrow">CHEONGUN HAKSA / ADMIN</div><h1>모의고사 성적 관리</h1></div></header><div class="admin-grid"><nav class="card nav"><button data-view="students">학생 관리</button><button data-view="scores">성적 관리</button><button data-view="bulk">일괄 입력</button><button data-view="answers">정답 관리</button><button data-view="cutoffs">등급 기준 관리</button><button data-view="files">파일 관리</button><button data-view="publish">공개 관리</button><button data-view="stats">통계</button><button data-view="preview">학생 성적 조회</button><button data-view="backup">백업</button><button data-view="audit">작업 기록</button><button id="adminLogout" class="nav-logout">로그아웃</button></nav><main class="card admin-main"><div id="adminContent"></div><p id="adminMessage" class="admin-msg toast" role="status" aria-live="polite"></p></main></div></div></div>
+<div id="adminApp" class="admin hidden"><div class="admin-wrap"><header class="admin-head"><div><div class="eyebrow">CHEONGUN HAKSA / ADMIN</div><h1>모의고사 성적 관리</h1></div></header><div class="admin-grid"><nav class="card nav"><span class="nav-group">학생</span><button data-view="students">학생 관리</button><button data-view="preview">학생 성적 조회</button><span class="nav-group">성적</span><button data-view="publish">공개 관리</button><button data-view="scores">성적 관리</button><button data-view="bulk">일괄 입력</button><button data-view="stats">통계</button><span class="nav-group">시험 자료</span><button data-view="cutoffs">등급 기준 관리</button><button data-view="answers">정답 관리</button><button data-view="files">파일 관리</button><span class="nav-group">시스템</span><button data-view="backup">백업</button><button data-view="audit">작업 기록</button><button id="adminLogout" class="nav-logout">로그아웃</button></nav><main class="card admin-main"><div id="adminContent"></div><p id="adminMessage" class="admin-msg toast" role="status" aria-live="polite"></p></main></div></div></div>
 <script>
 const SUPABASE_URL="https://gcajxrcyitsslwulyvjr.supabase.co";
 // Supabase Dashboard > Project Settings > API Keys에서 Publishable key를 입력하십시오.
@@ -775,3 +775,10 @@ $("bkList").onclick=async e=>{const b=e.target.closest("[data-bk]");if(!b)return
 .admin .gcell input{color:#222}
 @media(max-width:720px){.admin .search{flex-wrap:wrap}.admin .search>input{flex:1 1 100%;min-width:0}.admin .search>select,.admin .search>button{flex:1 1 100%;max-width:none!important;min-width:0}}
 </style>
+<style>
+/* 관리자 메뉴: 기능별 구분 제목 (휴대폰 폭에서는 가로 목록을 유지하기 위해 제목을 숨긴다) */
+.admin .nav .nav-group{display:block;padding:16px 12px 6px;font-size:11px;font-weight:650;letter-spacing:.06em;color:#8a8982;border-bottom:1px solid #deded9}
+.admin .nav .nav-group:first-child{padding-top:4px}
+@media(max-width:720px){.admin .nav .nav-group{display:none}}
+</style>
+
