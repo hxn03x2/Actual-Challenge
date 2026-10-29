@@ -776,16 +776,16 @@ $("bkList").onclick=async e=>{const b=e.target.closest("[data-bk]");if(!b)return
 @media(max-width:720px){.admin .search{flex-wrap:wrap}.admin .search>input{flex:1 1 100%;min-width:0}.admin .search>select,.admin .search>button{flex:1 1 100%;max-width:none!important;min-width:0}}
 </style>
 <style>
-/* 관리자 메뉴: 분류별 카드 (휴대폰 폭에서는 가로 목록을 유지하기 위해 카드와 제목을 풀어 둔다) */
+/* 관리자 메뉴: 각진 분류 구역 (휴대폰 폭에서는 가로 목록을 유지하기 위해 구역과 제목을 풀어 둔다) */
 .admin .nav{gap:0;padding:0;background:transparent}
-.admin .nav .nav-section{margin:0 0 12px;padding:6px 8px 8px;border:1px solid #e7e5de;background:#fff;border-radius:10px!important;box-shadow:0 1px 2px rgba(50,45,30,.04)}
-.admin .nav .nav-group{display:block;margin:0;padding:10px 10px 6px;font-size:10.5px;font-weight:600;letter-spacing:.14em;color:#a9a698;background:transparent;border:0}
-.admin .nav button[data-view]{display:block;position:relative;width:100%;text-align:left;margin:1px 0;padding:9px 12px!important;border:0!important;border-radius:7px!important;background:transparent;color:#5f5d55;font-size:13.5px;font-weight:450;letter-spacing:-.01em;transition:background .15s,color .15s}
-.admin .nav button[data-view]:hover{background:#f6f5f1!important;color:#2a2926!important}
-.admin .nav button[data-view].active{background:#f1efe8!important;color:#1f1e1c!important;font-weight:600;border:0!important;box-shadow:none}
-.admin .nav button[data-view].active::before{content:"";position:absolute;left:0;top:9px;bottom:9px;width:3px;border-radius:2px;background:#8a8472}
-.admin .nav .nav-logout{margin-top:2px;padding:10px 14px;border:0;border-radius:7px!important;color:#9a978b;background:transparent;text-align:left;font-size:13px}
-.admin .nav .nav-logout:hover{color:#2a2926;background:#f1efe8}
-@media(max-width:720px){.admin .nav .nav-section{display:contents}.admin .nav .nav-group{display:none}.admin .nav button[data-view]{width:auto;margin:0;border-radius:0!important;border-bottom:2px solid transparent!important}.admin .nav button[data-view].active{background:#fff!important;border-bottom:2px solid #8a8472!important}.admin .nav button[data-view].active::before{display:none}.admin .nav .nav-logout{margin:0;border-radius:0!important}}
+.admin .nav .nav-section{margin:0 0 14px;padding:0;border:1px solid #d9d7cf;background:#fff;border-radius:0!important;box-shadow:none}
+.admin .nav .nav-group{display:block;margin:0 14px;padding:13px 0 9px;font-size:10.5px;font-weight:600;letter-spacing:.16em;color:#8f8c80;background:transparent;border:0;border-bottom:1px solid #ebe9e2}
+.admin .nav button[data-view]{display:block;position:relative;width:100%;text-align:left;margin:0;padding:11px 14px 11px 28px!important;border:0!important;border-radius:0!important;background:transparent;color:#66645b;font-size:13.5px;font-weight:450;letter-spacing:-.01em;transition:background .15s,color .15s}
+.admin .nav button[data-view]:hover{background:#faf9f6!important;color:#1f1e1c!important}
+.admin .nav button[data-view].active{background:#faf9f6!important;color:#1a1917!important;font-weight:600;border:0!important;box-shadow:none}
+.admin .nav button[data-view].active::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:#1a1917}
+.admin .nav .nav-logout{margin-top:0;padding:11px 14px;border:0;border-radius:0!important;color:#9a978b;background:transparent;text-align:left;font-size:12.5px;letter-spacing:.02em}
+.admin .nav .nav-logout:hover{color:#1a1917}
+@media(max-width:720px){.admin .nav .nav-section{display:contents}.admin .nav .nav-group{display:none}.admin .nav button[data-view]{width:auto;padding:10px 12px!important;border-bottom:2px solid transparent!important}.admin .nav button[data-view].active{background:#fff!important;border-bottom:2px solid #1a1917!important}.admin .nav button[data-view].active::before{display:none}.admin .nav .nav-logout{margin:0}}
 </style>
 
