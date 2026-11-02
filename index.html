@@ -303,7 +303,7 @@ body{letter-spacing:-.025em;line-height:1.42;background:#f4f4f2}
     <section class="result-section"><div class="section-head"><h2>시험 자료</h2></div><div id="resultFiles"></div></section>
   </main>
 </div>
-<div id="adminApp" class="admin hidden"><div class="admin-wrap"><header class="admin-head"><div><div class="eyebrow">CHEONGUN HAKSA / ADMIN</div><h1>모의고사 성적 관리</h1></div></header><div class="admin-grid"><nav class="card nav"><div class="nav-section"><span class="nav-group">학생</span><button data-view="students">학생 관리</button><button data-view="preview">학생 성적 조회</button></div><div class="nav-section"><span class="nav-group">성적</span><button data-view="publish">공개 관리</button><button data-view="scores">성적 관리</button><button data-view="stats">통계</button></div><div class="nav-section"><span class="nav-group">시험 자료</span><button data-view="cutoffs">등급 기준 관리</button><button data-view="answers">정답 관리</button><button data-view="files">파일 관리</button></div><div class="nav-section"><span class="nav-group">시스템</span><button data-view="audit">작업 기록</button><button data-view="todo"><i class="nd"></i>점검 항목</button></div><div id="reviewStatus" class="nav-status"></div><button id="adminLogout" class="nav-logout">로그아웃</button></nav><main class="card admin-main"><div id="adminContent"></div><p id="adminMessage" class="admin-msg toast" role="status" aria-live="polite"></p></main></div></div></div>
+<div id="adminApp" class="admin hidden"><div class="admin-wrap"><header class="admin-head"><div><div class="eyebrow">CHEONGUN HAKSA <span>/</span> ADMIN</div><h1>모의고사 성적 관리</h1></div></header><div class="admin-grid"><nav class="card nav"><div class="nav-section"><span class="nav-group">학생</span><button data-view="students">학생 관리</button><button data-view="preview">학생 성적 조회</button></div><div class="nav-section"><span class="nav-group">성적</span><button data-view="publish">공개 관리</button><button data-view="scores">성적 관리</button><button data-view="stats">통계</button></div><div class="nav-section"><span class="nav-group">시험 자료</span><button data-view="cutoffs">등급 기준 관리</button><button data-view="answers">정답 관리</button><button data-view="files">파일 관리</button></div><div class="nav-section"><span class="nav-group">시스템</span><button data-view="audit">작업 기록</button><button data-view="todo"><i class="nd"></i>점검 항목</button></div><div id="reviewStatus" class="nav-status"></div><button id="adminLogout" class="nav-logout">로그아웃</button></nav><main class="card admin-main"><div id="adminContent"></div><p id="adminMessage" class="admin-msg toast" role="status" aria-live="polite"></p></main></div></div></div>
 <script>
 const SUPABASE_URL="https://gcajxrcyitsslwulyvjr.supabase.co";
 // Supabase Dashboard > Project Settings > API Keys에서 Publishable key를 입력하십시오.
@@ -1018,7 +1018,16 @@ body.pp-on .cutoff-grid{display:flex;flex-wrap:wrap;gap:8px}
 .login h1{margin:0 0 8px;line-height:1.25}
 .login h1 .h1-sub{display:block;font-size:1em;font-weight:inherit;letter-spacing:inherit;line-height:inherit;color:inherit;margin:0 0 2px;padding:0;white-space:nowrap}
 @media(max-width:380px){.login h1 .h1-sub{font-size:.9em}}
+/* 넓은 화면: 제목을 한 줄로, 입력 영역도 함께 넓게 */
+@media(min-width:721px){
+.login{width:min(100%,460px);max-width:460px}
+.login h1,.login h1.one{font-size:22px;letter-spacing:-.05em;white-space:nowrap}
+.login h1 .h1-sub{display:inline;margin:0 .32em 0 0}
+}
 /* 관리자 화면 제목: 낫표 문구 제거로 생긴 여백 보정 */
 .admin-head h1{margin-top:9px;line-height:1.25}
 
+/* 관리자 화면 영문 문구: 로그인 화면과 같은 글꼴, 굵기, 자간, 색 */
+.admin-head .eyebrow{font-family:Inter,"Helvetica Neue",Arial,sans-serif;font-size:10px;font-weight:750;letter-spacing:.105em;color:#62625d}
+.admin-head .eyebrow span{padding:0 2px;color:#a09f99}
 </style>
