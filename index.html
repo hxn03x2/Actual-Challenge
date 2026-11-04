@@ -379,7 +379,7 @@ const bubs=[1,2,3,4,5].map(c=>{const isAns=okList.includes(String(c)),isPick=min
 return `<div class="sh-row${right?"":" x"}" role="group" aria-label="${i+1}번 정답 ${esc(r.a)}번, 내 답 ${mine?esc(mine)+"번":"무응답"}"><span class="sh-n">${i+1}</span><div class="sh-bs">${bubs}</div></div>`}).join("");
 return `<div class="sheet-top"><div class="sheet-sum"><strong>${esc(x._parts.subject)}</strong><span>정답 ${ok}문항 · 오답 ${rows.length-ok}문항 / 전체 ${rows.length}문항</span></div>${hasRates?'<button type="button" class="sheet-toggle" data-rates aria-pressed="false">선택률 보기</button>':""}</div><div class="sheet-legend"><span><b class="lg ok"></b>정답</span><span><b class="lg pick"></b>내가 고른 정답</span><span><b class="lg bad"></b>내가 고른 오답</span></div><div class="sheet-grid" style="--rows:${Math.ceil(rows.length/2)}">${cells}</div>${hasRates?'<p class="sheet-note">선택률은 같은 시험, 같은 영역을 응시한 인원 기준(%)입니다.</p>':""}`}
 const SHEET_ICON='<svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><circle cx="4" cy="4" r="1.7" fill="currentColor"/><circle cx="8" cy="4" r="1.7" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="12" cy="4" r="1.7" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="4" cy="12" r="1.7" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="8" cy="12" r="1.7" fill="currentColor"/><circle cx="12" cy="12" r="1.7" fill="none" stroke="currentColor" stroke-width="1.1"/></svg>';
-function sheetBtn(x,i){return x.sheet&&x.sheet.rows&&x.sheet.rows.length?`<button type="button" class="sheet-open" data-sheet="${i}" aria-expanded="false" aria-label="${esc(x._parts.subject)} 정오표 보기" title="정오표">${SHEET_ICON}<span>정오표</span></button>`:""}
+function sheetBtn(x,i){return x.sheet&&x.sheet.rows&&x.sheet.rows.length?`<button type="button" class="sheet-open" data-sheet="${i}" aria-expanded="false" aria-label="${esc(x._parts.subject)} 정오표 보기" title="정오표"><span>정오표</span></button>`:""}
 function bindSheetRows(box,valid){if(!box)return;box.onclick=e=>{const rt=e.target.closest("[data-rates]");if(rt){const p=rt.closest(".sheet-panel");const on=rt.getAttribute("aria-pressed")!=="true";rt.setAttribute("aria-pressed",on);rt.textContent=on?"선택률 숨기기":"선택률 보기";if(p)p.classList.toggle("rates",on);return}const b=e.target.closest("[data-sheet]");if(!b)return;const tr=b.closest("tr");const was=b.getAttribute("aria-expanded")==="true";box.querySelectorAll("[data-sheet]").forEach(x=>x.setAttribute("aria-expanded","false"));box.querySelectorAll("tr.sheet-row").forEach(r=>r.remove());box.querySelectorAll("tr.sheet-on").forEach(r=>r.classList.remove("sheet-on"));if(was)return;const x=valid[Number(b.dataset.sheet)];if(!x||!tr)return;b.setAttribute("aria-expanded","true");tr.classList.add("sheet-on");const row=document.createElement("tr");row.className="sheet-row";row.innerHTML=`<td colspan="${tr.children.length}"><div class="sheet-panel">${sheetPanelHtml(x)}</div></td>`;tr.after(row)}} function fmt(v){const n=Number(v);return Number.isFinite(n)?n.toLocaleString("ko-KR",{maximumFractionDigits:1}):"—"}
 function endAdminSession(){adminToken="";students=[];scores=[];cutoffs=[];answerKeys=[];try{issueRows=[]}catch(e){}content.innerHTML="";adminMsg.textContent="";adminMsg.classList.remove("show");$("adminWelcome").classList.add("hidden");admin.classList.add("hidden");$("studentApp").classList.remove("hidden");showLogin()}
 function logoutWithNotice(done){const overlay=$("logoutOverlay");overlay.classList.remove("hidden");setTimeout(()=>{overlay.classList.add("hidden");done()},650)}
@@ -1109,14 +1109,15 @@ body.stu-on{background:#fff}
 @media print{.sheet-section{display:none!important}}
 /* 정오표 버튼: 사이트의 다른 버튼과 같은 각진 윤곽선 버튼 */
 .shcol{text-align:right;white-space:nowrap}
-.sheet-open{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 15px 0 13px;border:1px solid #b9b8b1;border-radius:0;background:#fff;color:#242422;font:inherit;font-size:11.5px;font-weight:600;letter-spacing:.16em;line-height:1;vertical-align:middle;cursor:pointer;transition:background .18s,color .18s,border-color .18s}
-.sheet-open svg{flex:none;width:12px;height:12px}
-.sheet-open span{padding-left:.16em}
-.sheet-open:hover,.sheet-open[aria-expanded="true"]{background:#242422;border-color:#242422;color:#fff}
-.sheet-open:focus-visible{outline:2px solid #242422;outline-offset:2px}
+.sheet-open{display:inline-flex;align-items:center;gap:7px;padding:4px 0;border:0;border-radius:0;background:none;color:#242422;font:inherit;font-size:12.5px;font-weight:600;letter-spacing:inherit;line-height:1.2;vertical-align:middle;cursor:pointer}
+.sheet-open span{text-decoration:underline;text-decoration-thickness:1px;text-decoration-color:#b9b8b1;text-underline-offset:6px;transition:text-decoration-color .2s}
+.sheet-open::after{content:"";flex:none;width:5px;height:5px;margin-top:-3px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg);transition:transform .2s,margin .2s}
+.sheet-open:hover span,.sheet-open[aria-expanded="true"] span{text-decoration-color:#242422}
+.sheet-open[aria-expanded="true"]::after{margin-top:3px;transform:rotate(-135deg)}
+.sheet-open:focus-visible{outline:2px solid #242422;outline-offset:4px}
 tr.sheet-on>td{background:#fafaf8}
 tr.sheet-row>td{padding:0!important;border-top:0}
 .sheet-row .sheet-panel{margin:0;border:0;border-top:1px solid #e1e0da;background:#fcfcfa;padding:16px 16px 14px}
-@media(max-width:480px){.sheet-open{height:30px;gap:5px;padding:0 9px 0 8px;font-size:10.5px;letter-spacing:.08em}.sheet-open span{padding-left:.08em}.sheet-row .sheet-panel{padding:14px 10px 12px}}
+@media(max-width:480px){.sheet-open{font-size:12px;gap:6px}.sheet-row .sheet-panel{padding:14px 10px 12px}}
 @media print{.shcol,tr.sheet-row{display:none!important}}
 </style>
