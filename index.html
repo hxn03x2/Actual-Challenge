@@ -1242,4 +1242,23 @@ body.pp-on .cutoff-grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))!imp
 body.pp-on .cutoff-grid.cols-4{grid-template-columns:repeat(4,minmax(0,1fr))!important}
 body.pp-on .cutoff-grid .cutoff-item{padding:12px 0 12px 14px!important;border-left:1px solid #d8d7d1!important}
 body.pp-on .cutoff-grid .cutoff-item:nth-child(4n+1){padding-left:0!important;border-left:0!important}}
+/* 성적표 인쇄: 학생 화면과 관리자 미리보기의 글자 크기와 간격을 같은 비율로 맞춤 */
+@media print{
+body.pp-on h1{font-size:30px!important;line-height:1.2!important;margin:6px 0 0!important}
+body.pp-on .eyebrow{font-size:10.5px!important}
+body.pp-on .result-meta span{font-size:11px!important}
+body.pp-on .result-meta strong{font-size:15px!important;line-height:1.35!important}
+body.pp-on .result-section{margin:30px 0 0!important}
+body.pp-on .result-section h2,body.pp-on .section-head h2{font-size:17px!important;font-weight:700!important;margin:0 0 12px!important;letter-spacing:-.03em!important;line-height:1.3!important}
+body.pp-on .section-head{margin:0 0 6px!important;border:0!important;padding:0!important}
+body.pp-on th{font-size:12px!important;font-weight:600!important;padding:10px 8px!important}
+body.pp-on td{font-size:14px!important;padding:11px 8px!important}
+body.pp-on td small,body.pp-on td span{font-size:11.5px!important}
+body.pp-on .cutoff-title{font-size:13.5px!important;font-weight:700!important;margin:0 0 6px!important}
+body.pp-on .cutoff-line{font-size:13px!important;padding:4px 0!important}
+body.pp-on .cutoff-line strong{font-size:13px!important}
+body.pp-on .cutoff-grid .cutoff-item{padding-top:14px!important;padding-bottom:14px!important}
+body.pp-on .tablewrap{border:0!important;border-top:1px solid #111!important;border-radius:0!important;box-shadow:none!important}
+}
+@page{margin:15mm 14mm}
 </style>
