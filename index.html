@@ -1261,4 +1261,13 @@ body.pp-on .cutoff-grid .cutoff-item{padding-top:14px!important;padding-bottom:1
 body.pp-on .tablewrap{border:0!important;border-top:1px solid #111!important;border-radius:0!important;box-shadow:none!important}
 }
 @page{margin:15mm 14mm}
+/* 성적표 인쇄: 인쇄 대화상자의 여백 설정과 관계없이 종이 가장자리에서 떨어지게, 영역이 적을 때는 등급 기준을 가로로 나누어 배치 */
+@page{margin:0}
+@media print{
+body.pp-on{margin:0!important;padding:15mm 14mm!important}
+body.pp-on .cutoff-grid.cols-1 .cutoff-item{column-count:4;column-gap:24px}
+body.pp-on .cutoff-grid.cols-2 .cutoff-item{column-count:2;column-gap:24px}
+body.pp-on .cutoff-grid.cols-1 .cutoff-title,body.pp-on .cutoff-grid.cols-2 .cutoff-title{column-span:all;margin-bottom:8px!important}
+body.pp-on .cutoff-line{break-inside:avoid}
+}
 </style>
