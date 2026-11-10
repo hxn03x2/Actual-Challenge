@@ -1235,7 +1235,7 @@ svg.lc{display:block;max-width:100%;height:auto}
 .admin .pub-at input[type="datetime-local"]{height:33px!important;min-height:33px!important;max-height:33px;padding:0 8px!important;line-height:31px;box-sizing:border-box!important}
 .admin .pub-at input[type="datetime-local"]::-webkit-datetime-edit{padding:0}
 .admin .pub-at input[type="datetime-local"]::-webkit-datetime-edit-fields-wrapper{padding:0}
-.log-tag{display:inline-block;margin-left:4px;padding:0 6px;border:1px solid #d3d2cc;font-size:10.5px;line-height:17px;color:#62625d;background:#f4f3ef;vertical-align:1px}
+.log-tag{display:inline-block;margin-left:8px;padding-left:8px;border-left:1px solid #d3d2cc;font-size:11px;line-height:12px;color:#a09f99;letter-spacing:.02em;vertical-align:baseline}
 /* 성적표 인쇄: 등급 기준 원점수가 한쪽으로 몰리지 않고 영역 수만큼 같은 폭으로 펼쳐지게 */
 @media print{body.pp-on .cutoff-grid{display:grid!important;flex-wrap:nowrap!important;gap:0!important;width:100%}
 body.pp-on .cutoff-grid.cols-1{grid-template-columns:minmax(0,1fr)!important}
@@ -1289,4 +1289,10 @@ body.pp-on .cutoff-line{break-inside:avoid}
 .pub-group .pub-title .ex-date{font-weight:500;color:#62625d;font-size:.92em}
 .pub-arow .pub-title{justify-content:flex-start!important;flex-wrap:wrap;gap:4px 10px}
 .pub-arow .pub-title strong{flex:0 1 auto!important}
+/* 성적표 인쇄: 응시 일자는 한 줄로 두고, 시험 칸에는 응시일을 다시 쓰지 않는다 */
+@media print{
+body.pp-on .result-meta>div:first-child{flex:1.9 1 0!important}
+body.pp-on .result-meta>div:first-child strong{white-space:nowrap!important;word-break:keep-all!important}
+body.pp-on .result-meta .ex-date{display:none!important}
+}
 </style>
